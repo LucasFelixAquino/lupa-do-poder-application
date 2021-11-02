@@ -1,0 +1,36 @@
+.roles-block {
+  padding: 7.5vh 7.5vw;
+  min-height: calc(85vh - 70px) !important;
+
+  background: #466DFA;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.roles-title {
+  font-size: 48px;
+  font-weight: 700;
+
+  text-align: center;
+
+  color: white;
+}
+
+.role-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  flex-wrap: wrap;
+
+  padding: 0 15vw;
+}
+
+@media (max-width: 768px) {
+  .role-cards-wrapper {
+    padding: 0;
+  }
+}

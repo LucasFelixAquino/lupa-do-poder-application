@@ -1,0 +1,261 @@
+.profile-wrapper {
+  height: 360px;
+  background: #E6EBFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #9AAFFF;
+}
+
+.profile-image {
+  height: 240px;
+  width: 240px;
+
+  border-radius: 50%;
+
+  border: 6px solid #FFF;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  margin: 0 48px;
+
+}
+
+.profile-header {
+  display: flex;
+  flex-direction : row;
+
+  align-items: center;
+}
+
+.profile-header__name {
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.profile-header__age {
+  font-size: 24px;
+  font-weight: 400;
+
+  margin: 0 24px;
+}
+
+.profile-cur-mandate {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-cur-mandate__name {
+  display: flex;
+  align-items: center;
+}
+
+.profile-cur-mandate__name,
+.profile-cur-mandate__stateCity {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.profile-cur-mandate__party {
+  background: #0336FF;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFF;
+  padding: 3px 9px;
+  border-radius: 5px;
+  margin: 0 18px;
+
+}
+
+.profile-follow-btn {
+  position: absolute;
+  bottom: 0;
+  left: 60%;
+
+  background: #0336FF;
+  padding: 16px 48px;
+  border-radius: 10px 10px 0px 0px;
+
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: background 0.1s;
+}
+
+.profile-follow-btn:hover {
+  background: #021B80;
+}
+
+.profile-follow-btn::before {
+  content: '+';
+  margin: 0 6px 0 0;
+}
+
+.profile-middle-section {
+  display: flex;
+  flex-direction: row;
+
+  padding: 7.5vh 15vw;
+}
+
+
+.simple-table-wrapper {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #9AAFFF;
+  border-radius: 10px;
+  margin: 0 12px;
+}
+
+.simple-table-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #9AAFFF;
+
+  padding: 6px 22px;
+}
+
+.simple-table-header {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.simple-table-body {
+  overflow: auto;
+  max-height: 210px;
+}
+
+.simple-table-row {
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(154, 175, 255, 0.33);
+  margin: 0 6px;
+}
+
+.mandate-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.mandate-name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.mandate-name a {
+  font-size: 16px;
+  color: #27272E;
+}
+
+.mandate-period {
+  color: #0336FF;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mandate-statecity {
+  font-size: 13px;
+}
+
+.proposition-row {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+
+.proposition-name {
+  background: #37C280;
+  padding: 4px 12px;
+  border-radius: 5px;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  width: 96px;
+}
+
+.proposition-simplified-thread {
+  margin-left: 24px;
+  font-size: 16px;
+}
+
+.proposition-info {
+  position: absolute;
+  right: 12px;
+}
+
+.proposition-info a {
+  font-size: 12px;
+}
+
+.expenses-wrapper {
+  background: #FBFAFA;
+
+  padding: 7.5vh 15vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+
+
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+.expenses-totals-wrapper {
+  height: 180px;
+}
+
+
+
+
+
+
+
+.expenses-by-category-wrapper {
+  height: 400px;
+}
+
+.years-wrapper {
+  margin: 12px 0;
+}
+
+.year-span {
+  color: #5F5F66;
+  padding: 4px 6px;
+  font-size: 14px;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.year-span:not(.active):hover {
+  color: #27272E;
+}
+
+.year-span.active {
+  background: #FFDE03;
+}

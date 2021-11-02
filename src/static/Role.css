@@ -1,0 +1,50 @@
+.role-image {
+  background: red;
+  height: 25vh;
+}
+
+.role-body {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 64px 15vw;
+}
+
+.role-name {
+  font-size: 48px;
+  font-weight: 500;
+  margin: 24px 0;
+
+  text-align: center;
+}
+
+.role-text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.role-text ul {
+  margin-left: 18px;
+  background: #F5F5F5;
+  border-left: 6px solid #FFCF44;
+
+  max-width: 80%;
+}
+
+.role-text li {
+  padding: 8px 24px;
+}
+
+.role-text li::before {
+  content: '•';
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .role-body {
+    padding: 32px 7.5vw;
+  }
+}

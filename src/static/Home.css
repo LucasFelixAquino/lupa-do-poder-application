@@ -1,0 +1,78 @@
+.home-block {
+  padding: 7.5vh 0;
+  min-height: calc(85vh - 70px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.logo-horizontal {
+  height: 148px;
+  width: auto;
+}
+
+.home-block:nth-child(1) {
+  background: linear-gradient(180deg, rgba(250, 255, 3, 0) 0%, rgba(55, 194, 128, 0.65) 100%), url(../static/imgs/national-congress.png);
+}
+
+.home-block:nth-child(2) {
+   background: #FFCF44;
+}
+
+.home-block:nth-child(3) {
+  background: linear-gradient(180deg, #1EB980 17.26%, #FFCF44 127.43%);
+}
+
+.home-slogan {
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 36px;
+}
+
+.home-block-title {
+  font-size: 48px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.home-block-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+
+  margin: 0 7.5vw 64px 7.5vw;
+
+  text-align: center;
+}
+
+.proposition-cards-wrapper {
+  display: flex;
+  justify-content: center;
+
+  margin: 0 7.5vw;
+  flex-wrap: wrap;
+
+}
+
+@media (max-width: 768px) {
+  .logo-horizontal {
+    height: 90px;
+    width: auto;
+  }
+
+  .home-slogan {
+    font-size: 18px;
+  }
+
+  .home-block-title {
+    font-size: 36px;
+  }
+
+  .home-block-subtitle {
+    font-size: 16px;
+  }
+}

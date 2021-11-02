@@ -1,0 +1,77 @@
+@import 'Home.css';
+@import 'Roles.css';
+@import 'Role.css';
+@import 'Politician.css';
+
+@import 'navbar.css';
+@import 'footer.css';
+@import 'propositionCard.css';
+@import 'roleCard.css';
+
+body {
+  margin: 0;
+  padding: 0;
+
+  color: #27272E;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.blue {
+  color: #0336FF !important;
+}
+
+.white {
+  color: #FFF !important;
+}
+
+.yellow {
+  color: #FFCF44 !important;
+}
+
+.blue-btn {
+  background: #0336FF;
+  width: 320px;
+  height: 60px;
+  border-radius: 15px;
+
+  font-size: 18px;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: background .15s;
+}
+
+.blue-btn:hover {
+  background: #021B80;
+}
+
+.main-wrapper {
+  min-height: calc(100vh + 70px + 180px);
+  margin-top: 70px;
+}
+
+.abs-1 {background: url(imgs/abstract-1.png);}
+.abs-2 {background: url(imgs/abstract-2.png);}
+.abs-3 {background: url(imgs/abstract-3.png);}
+.abs-4 {background: url(imgs/abstract-4.png);}
