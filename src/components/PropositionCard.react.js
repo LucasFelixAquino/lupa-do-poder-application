@@ -6,12 +6,18 @@ function getBackgroundId(position) {
 }
 
 export default class PropositionCard extends Component {
+  constructor(props) {
+    super(props);
+
+    this.backgroundId = Math.ceil(Math.random() * 20);
+  }
+  
   render() {
     return (
       <Link className="proposition-card-wrapper" to={`/proposicao/${this.props.id}`}>
 
           <div
-            className={"proposition-card-header abs-" + getBackgroundId(this.props.position)}>
+            className={"proposition-card-header abs-" + this.backgroundId}>
             <span className="proposition-card-header__title">{this.props.name}</span>
           </div>
 

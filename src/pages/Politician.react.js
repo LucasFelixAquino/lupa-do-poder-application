@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ReactECharts from '../components/ReactECharts.react';
 import TotalPoliticianExpenses from '../charts/TotalPoliticianExpenses.react';
 import ByCategoryPoliticianExpenses from '../charts/ByCategoryPoliticianExpenses.react';
+import LastPoliticianExpenses from '../charts/LastPoliticianExpenses.react';
 
 
 import api from "../services/api";
@@ -190,6 +191,7 @@ export default class Politician extends Component {
 
           <div className="expenses-category-wrapper">
             <ByCategoryPoliticianExpenses data={this.state.expenses.byCategory} />
+            <LastPoliticianExpenses data={this.state.expenses.lastExpenses} />
           </div>
         </div>
 

@@ -1,5 +1,7 @@
 .role-image {
-  background: red;
+  background-image: url(imgs/brasilia.png);
+  background-repeat: no-repeat;
+  background-position: center;
   height: 25vh;
 }
 
@@ -41,6 +43,17 @@
 .role-text li::before {
   content: '•';
   margin-right: 8px;
+}
+
+.role-section {
+  margin-bottom: 48px;
+}
+
+.role-section-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16 px;
 }
 
 @media (max-width: 768px) {

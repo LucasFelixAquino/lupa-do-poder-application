@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 
-function getBackgroundId(position) {
-  return (position % 4) + 1
-}
-
 export default class RoleCard extends Component {
+  constructor(props) {
+    super(props);
+
+    this.backgroundId = Math.ceil(Math.random() * 20);
+  }
+
   render() {
     return (
       <Link to={`/competencias/${this.props.id}`}>
           <div className="role-card-wrapper">
-            <div className={"role-card-header abs-" + getBackgroundId(this.props.position)}>
+            <div className={"role-card-header abs-" + this.backgroundId}>
             </div>
 
             <div className="role-card-body">

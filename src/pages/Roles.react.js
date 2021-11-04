@@ -10,24 +10,23 @@ export default class Roles extends Component {
     super(props);
 
     this.state = {
-      roles: [
-        {id: 10, name: 'Presidente', branch: 'Executivo'},
-        {id: 13, name: 'Ministro', branch: 'Executivo'},
-        {id: 11, name: 'Governador', branch: 'Executivo'},
-        {id: 12, name: 'Prefeito', branch: 'Executivo'},
-        {id: 20, name: 'Senador', branch: 'Legislativo'},
-        {id: 21, name: 'Deputado Federal', branch: 'Legislativo'},
-        {id: 21, name: 'Deputado Estadual', branch: 'Legislativo'},
-        {id: 22, name: 'Vereador', branch: 'Legislativo'},
-      ],
+      roles: [],
     }
   }
 
-  getRoles() {
-      api.get("/roles")
-        .then((res) => this.setState({
-          roles: res.data,
-        }))
+  getRolesData() {
+      api.get(`roles`)
+          .then((res) => {
+            this.setState({
+              roles: res.data.map(d => ({id: d.id, name: d.name, branch: d.branch}))
+                .sort(function(a, b) {
+
+                  if (a.branch < b.branch) return -1;
+                  if (a.branch > b.branch) return 1;
+                  return 0;
+                })
+            });
+          })
         .catch((err) => {
           console.error("Couldn't get roles. " + err);
         });
@@ -36,7 +35,7 @@ export default class Roles extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.getRoles();
+    this.getRolesData();
   }
 
   render() {

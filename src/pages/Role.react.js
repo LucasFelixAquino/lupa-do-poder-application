@@ -12,17 +12,19 @@ export default class Role extends Component {
     super(props);
 
     this.state = {
-      title: 'Deputado Federal',
-      description: '<p>O deputado federal é o representante do povo no Congresso Nacional e seu mandato é de 4 anos, não havendo limite para a reeleição. Para se candidatar a esse cargo é preciso atender os seguintes requisitos:</p><ul><li>Ter idade mínima de 21 anos</li><li>Estar inscrito em algum partido político</li><li>Ter nacionalidade brasileira</li><li>Possuir domicílio eleitoral no estado pelo qual está concorrendo ao cargo</li><li>Ter pleno exercício dos direitos políticos</li></ul>'
+      title: '',
+      description: ''
     }
   }
 
   getRoleData(id) {
-      api.get(`/roles/${id}`)
-        .then((res) => this.setState({
-          title: res.title,
-          description: res.description,
-        }))
+      api.get(`roles/${id}`)
+          .then((res) => {
+            this.setState({
+              title: res.data.name,
+              description: res.data.description,
+            });
+          })
         .catch((err) => {
           console.error("Couldn't get role. " + err);
         });

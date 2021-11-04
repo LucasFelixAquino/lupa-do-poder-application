@@ -29,7 +29,7 @@
 
 .profile-header {
   display: flex;
-  flex-direction : row;
+  flex-direction: row;
 
   align-items: center;
 }
@@ -212,7 +212,10 @@
   align-items: stretch;
 }
 
-
+.expenses-category-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 
 .chart-wrapper {
   display: flex;
@@ -225,6 +228,7 @@
 }
 
 
+
 .expenses-totals-wrapper {
   height: 180px;
 }
@@ -232,11 +236,9 @@
 
 
 
-
-
-
 .expenses-by-category-wrapper {
   height: 400px;
+  flex-grow: 2;
 }
 
 .years-wrapper {
@@ -258,4 +260,34 @@
 
 .year-span.active {
   background: #FFDE03;
+}
+
+
+.expenses-last-wrapper {
+  flex-grow: 3;
+}
+
+.expenses-last-table {
+  border-spacing: 10px;
+}
+
+.expenses-last-table th {
+  background: #9AAFFF;
+  border-radius: 6px;
+
+  font-size: 14px;
+  color: #27272e;
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+.expenses-last-table td {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.expenses-last-table td:last-child {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
 }

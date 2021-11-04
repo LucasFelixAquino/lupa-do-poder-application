@@ -71,7 +71,29 @@ button {
   margin-top: 70px;
 }
 
-.abs-1 {background: url(imgs/abstract-1.png);}
-.abs-2 {background: url(imgs/abstract-2.png);}
-.abs-3 {background: url(imgs/abstract-3.png);}
-.abs-4 {background: url(imgs/abstract-4.png);}
+.abs-1, .abs-2, .abs-3, .abs-4, .abs-5, .abs-6, .abs-7, .abs-8, .abs-9, .abs-10,
+.abs-11, .abs-12, .abs-13, .abs-14, .abs-15, .abs-16, .abs-17, .abs-18, .abs-19, .abs-20  {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.abs-1 {background-image: url(imgs/abstract-1.png);}
+.abs-2 {background-image: url(imgs/abstract-2.png);}
+.abs-3 {background-image: url(imgs/abstract-3.png);}
+.abs-4 {background-image: url(imgs/abstract-4.png);}
+.abs-5 {background-image: url(imgs/abstract-5.png);}
+.abs-6 {background-image: url(imgs/abstract-6.png);}
+.abs-7 {background-image: url(imgs/abstract-7.png);}
+.abs-8 {background-image: url(imgs/abstract-8.png);}
+.abs-9 {background-image: url(imgs/abstract-9.png);}
+.abs-10 {background-image: url(imgs/abstract-10.png);}
+.abs-11 {background-image: url(imgs/abstract-11.png);}
+.abs-12 {background-image: url(imgs/abstract-12.png);}
+.abs-13 {background-image: url(imgs/abstract-13.png);}
+.abs-14 {background-image: url(imgs/abstract-14.png);}
+.abs-15 {background-image: url(imgs/abstract-15.png);}
+.abs-16 {background-image: url(imgs/abstract-16.png);}
+.abs-17 {background-image: url(imgs/abstract-17.png);}
+.abs-18 {background-image: url(imgs/abstract-18.png);}
+.abs-19 {background-image: url(imgs/abstract-19.png);}
+.abs-20 {background-image: url(imgs/abstract-20.png);}
