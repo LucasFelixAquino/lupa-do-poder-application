@@ -61,7 +61,8 @@ export default class Politician extends Component {
   }
 
   onFollow() {
-    api.get(`/follow/${this.state.usermail}&${this.props.id}`)
+
+    api.get(`/follow/${this.state.usermail}&${this.props.id}&${this.state.data.name.split(' ').join('-')}`)
       .then((res) => {
         console.log(`Subscription for ${this.state.usermail}&${this.props.id}`)
         this.closeModal()
