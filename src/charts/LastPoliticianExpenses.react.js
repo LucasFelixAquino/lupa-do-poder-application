@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Switch, Route } from 'react-router-dom';
 
 function formatCurrency(value) {
   return value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
@@ -7,9 +6,6 @@ function formatCurrency(value) {
 
 export default class LastPoliticianExpenses extends Component {
 
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

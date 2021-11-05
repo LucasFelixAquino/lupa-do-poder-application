@@ -16,10 +16,10 @@ export default class Home extends Component {
     this.state = {
       propositions: [
         {id: 232, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
-        {id: 232, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
-        {id: 232, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
-        {id: 232, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde. Abre crédito extraordinário em favor do Ministério da Saúde. Abre crédito extraordinário em favor do Ministério da Saúde. Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
-        {id: 232, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
+        {id: 233, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
+        {id: 234, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
+        {id: 235, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde. Abre crédito extraordinário em favor do Ministério da Saúde. Abre crédito extraordinário em favor do Ministério da Saúde. Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
+        {id: 236, name: 'PL 234/2021', simplifiedThread: 'Abre crédito extraordinário em favor do Ministério da Saúde.', status: 'Aguardando início de comissão temporária'},
       ],
     }
   }

@@ -35,8 +35,9 @@
 }
 
 .profile-header__name {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .profile-header__age {
@@ -142,18 +143,18 @@
   margin: 0 6px;
 }
 
-.mandate-row {
+.mandate-name {
   display: flex;
   flex-direction: column;
 }
 
-.mandate-name {
+.mandate-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 3px;
 }
 
-.mandate-name a {
+.mandate-row a {
   font-size: 16px;
   color: #27272E;
 }
@@ -162,10 +163,6 @@
   color: #0336FF;
   font-size: 14px;
   font-weight: 500;
-}
-
-.mandate-statecity {
-  font-size: 13px;
 }
 
 .proposition-row {

@@ -5,14 +5,21 @@
 
 @import 'navbar.css';
 @import 'footer.css';
+@import 'searchbar.css';
 @import 'propositionCard.css';
 @import 'roleCard.css';
+
+* {
+
+    box-sizing: border-box;
+}
 
 body {
   margin: 0;
   padding: 0;
 
   color: #27272E;
+
 }
 
 ul {

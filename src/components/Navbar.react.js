@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import SearchBar  from './SearchBar.react';
+
 import { ReactComponent as LogoIcon } from '../static/svgs/white-logo-icon.svg';
 import { ReactComponent as LogoText } from '../static/svgs/white-logo-text.svg';
 import { ReactComponent as HamburgerMenu } from '../static/svgs/hamburger-menu.svg';
-import { ReactComponent as Search } from '../static/svgs/search-solid.svg';
 
 import { Link } from "react-router-dom";
 
@@ -14,12 +15,33 @@ export default class Navbar extends Component {
 
     this.state = {
       active: false,
-      input: '',
+      deviceType: this.getDeviceType(),
     }
 
     this.toggleMenu = this.toggleMenu.bind(this);
     this.deactiveMenu = this.deactiveMenu.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.changeDevice = this.changeDevice.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.changeDevice);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.changeDevice);
+  }
+
+  getDeviceType() {
+    if (window.innerWidth >= 768) {
+      return  'desktop';
+    }
+
+    return 'mobile';
+  }
+
+  changeDevice() {
+    const deviceType = this.getDeviceType();
+    this.setState({deviceType});
   }
 
   toggleMenu() {
@@ -32,12 +54,6 @@ export default class Navbar extends Component {
   deactiveMenu() {
     this.setState({
       active: false,
-    })
-  }
-
-  handleChange(e) {
-    this.setState({
-      input: e.target.value,
     })
   }
 
@@ -62,14 +78,17 @@ export default class Navbar extends Component {
 
         <nav className={"nav" + (this.state.active ? ' active' : '')}>
           <ul className="menu">
+            {this.state.deviceType === 'mobile' && (
+              <li className="searchbar"><SearchBar deactivateMenu={this.deactiveMenu} /></li>
+            )}
             <li><button onClick={this.deactiveMenu}><Link to='/competencias'>Competências</Link></button></li>
             <li><button onClick={this.deactiveMenu}><Link to='/sobre'>Sobre</Link></button></li>
           </ul>
 
-          <div className="search-container">
-            <input type="text" value={this.state.input} onChange={e => this.handleChange(e)} className="search-input" placeholder="Buscar" />
-            <Link to={`/busca/:${this.state.input.replace(' ', '-')}`} className="search-icon-wrapper"><Search className="search-icon" /></Link>
-          </div>
+          {this.state.deviceType === 'desktop' && (
+            <SearchBar />
+          )}
+
         </nav>
 
 

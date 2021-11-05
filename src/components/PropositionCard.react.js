@@ -1,17 +1,13 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 
-function getBackgroundId(position) {
-  return (position % 4) + 1
-}
-
 export default class PropositionCard extends Component {
   constructor(props) {
     super(props);
 
     this.backgroundId = Math.ceil(Math.random() * 20);
   }
-  
+
   render() {
     return (
       <Link className="proposition-card-wrapper" to={`/proposicao/${this.props.id}`}>

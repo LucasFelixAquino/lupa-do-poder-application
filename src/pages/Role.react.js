@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import { Link } from "react-router-dom";
-import RoleCard from '../components/RoleCard.react';
 
 import api from "../services/api";
 
