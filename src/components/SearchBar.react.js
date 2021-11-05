@@ -10,7 +10,7 @@ export default class SearchBar extends Component {
     super(props);
 
     this.state = {
-      active: true,
+      active: false,
       input: '',
       data: [],
     }
@@ -68,10 +68,18 @@ export default class SearchBar extends Component {
     if (this.state.input.length > 0) {
       this.getSearchResults();
     }
+
     e.preventDefault()
   }
 
+
+
   render() {
+
+    const deactivateMenu = () => {
+      this.props.deactivateMenu()
+    }
+
     return (
       <div className="searchbar-wrapper" ref={this.wrapperRef}>
         <form
@@ -94,15 +102,25 @@ export default class SearchBar extends Component {
         {this.state.active && (
           <div className="search-results-wrapper">
             {this.state.data.map(d => (
-              <Link to={`/politicos/${d.id}`} className="search-result-wrapper">
-                <div className="search-result-image">
+              <Link
+                to={`/politicos/${d.id}`}
+                className="search-result-wrapper"
+                onClick={deactivateMenu}
+              >
+
+                <div className="search-result-image" style={{
+                  backgroundImage: `url(${d.url_photo})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                  backgroundSize: 'contain',
+                }}>
                 </div>
 
                 <div className="search-result-body">
                   <span className="search-result-name">{d.name.toLowerCase()}</span>
                   <div className="search-result-details">
                     <span className="search-result-details__state">{d.role}</span>
-                    <span className="search-result-details__party">PSOL</span>
+                    <span className="search-result-details__party">{d.partyname}</span>
                   </div>
                 </div>
               </Link>

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import TotalPoliticianExpenses from '../charts/TotalPoliticianExpenses.react';
 import ByCategoryPoliticianExpenses from '../charts/ByCategoryPoliticianExpenses.react';
 import LastPoliticianExpenses from '../charts/LastPoliticianExpenses.react';
+import Modal from 'react-modal';
+import datetime from '../bin/datetime';
 
 
 import api from "../services/api";
@@ -15,7 +17,31 @@ export default class Politician extends Component {
 
     this.state = {
       data: null,
+      openModal: false,
+      usermail: '',
     }
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.onFollow = this.onFollow.bind(this);
+    this.handleOnChangeModal = this.handleOnChangeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({
+      openModal: true,
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      openModal: false,
+    });
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    this.getPoliticianData(this.props.id);
   }
 
   getPoliticianData(id) {
@@ -28,12 +54,39 @@ export default class Politician extends Component {
         });
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-    this.getPoliticianData(this.props.id);
+  handleOnChangeModal(e) {
+    this.setState({
+      usermail: e.target.value,
+    })
+  }
+
+  onFollow() {
+    api.get(`/follow/${this.state.usermail}&${this.props.id}`)
+      .then((res) => {
+        console.log(`Subscription for ${this.state.usermail}&${this.props.id}`)
+        this.closeModal()
+      }).catch((err) => {
+        console.error("Couldn't follow the politician. " + err);
+        this.closeModal()
+      });
+
   }
 
   render() {
+    const customStyles = {
+      content: {
+        maxWidth: '600px',
+        minWidth: '380px',
+        maxHeight: '200px',
+        top: '50%',
+        left: '50%',
+        transform:' translate(-50%, -50%)',
+        borderRadius: '15px',
+        border: 'none',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+    };
+
     if (this.state.data !== null) {
       return (
         <div className="main-wrapper">
@@ -43,6 +96,7 @@ export default class Politician extends Component {
               backgroundImage: `url(${this.state.data.photo_url})`,
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
+              backgroundSize: 'contain',
             }}></div>
 
             <div className='profile-info'>
@@ -66,7 +120,44 @@ export default class Politician extends Component {
               </div>
             </div>
 
-            <button className="profile-follow-btn">Seguir</button>
+            <button
+              className="profile-follow-btn"
+              onClick={this.openModal}
+            >
+              Seguir
+            </button>
+            <Modal
+              ariaHideApp={false}
+              style={customStyles}
+              isOpen={this.state.openModal}
+              onRequestClose={this.closeModal}
+              contentLabel="Example Modal">
+
+              <div className="follow-modal-container">
+                <div className="follow-modal-header">
+                  <span className="follow-modal-name">{this.state.data.name}</span>
+                  <button className="follow-modal-close-btn" onClick={this.closeModal}>Fechar</button>
+                </div>
+
+                <span className="follow-modal-title">Para receber notificações do político, insira seu email.</span>
+                <div className="follow-modal-input-wrapper">
+                  <input
+                    className="follow-modal-input"
+                    type="text"
+                    placeholder="Seu email aqui"
+                    value={this.state.usermail}
+                    onChange={this.handleOnChangeModal}/>
+                  <button
+                    className="follow-modal-follow-btn"
+                    onClick={this.onFollow}
+                  >
+                    Seguir
+                  </button>
+                </div>
+
+              </div>
+
+            </Modal>
 
           </div>
 
@@ -87,7 +178,7 @@ export default class Politician extends Component {
                   <div key={i} className="simple-table-row mandate-row">
                     <span className="mandate-name">
                       <Link to={`/competencias/${d.id}`}>{d.name}</Link>
-                      <span className="mandate-period">{d.yearStart} - {d.yearEnd}</span>
+                      <span className="mandate-period">{datetime.getYear(d.yearStart)} - {datetime.getYear(d.yearEnd)}</span>
                     </span>
                     <span className="mandate-statecity">{d.stateCity}</span>
                   </div>
@@ -116,10 +207,6 @@ export default class Politician extends Component {
 
               </div>
             )}
-
-
-
-
           </div>
 
           {this.state.data.expenses.totals.x.length > 0 && (

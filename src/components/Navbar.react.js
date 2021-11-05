@@ -19,7 +19,7 @@ export default class Navbar extends Component {
     }
 
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.deactiveMenu = this.deactiveMenu.bind(this);
+    this.deactivateMenu = this.deactivateMenu.bind(this);
     this.changeDevice = this.changeDevice.bind(this);
   }
 
@@ -51,7 +51,7 @@ export default class Navbar extends Component {
     })
   }
 
-  deactiveMenu() {
+  deactivateMenu() {
     this.setState({
       active: false,
     })
@@ -68,7 +68,7 @@ export default class Navbar extends Component {
 
 
         <div className="logo">
-          <button onClick={this.deactiveMenu}>
+          <button onClick={this.deactivateMenu}>
             <Link to='/'>
               <LogoIcon className="white-logo-icon" />
               <LogoText className="white-logo-text" />
@@ -79,14 +79,14 @@ export default class Navbar extends Component {
         <nav className={"nav" + (this.state.active ? ' active' : '')}>
           <ul className="menu">
             {this.state.deviceType === 'mobile' && (
-              <li className="searchbar"><SearchBar deactivateMenu={this.deactiveMenu} /></li>
+              <li className="searchbar"><SearchBar deactivateMenu={this.deactivateMenu} /></li>
             )}
-            <li><button onClick={this.deactiveMenu}><Link to='/competencias'>Competências</Link></button></li>
-            <li><button onClick={this.deactiveMenu}><Link to='/sobre'>Sobre</Link></button></li>
+            <li><button onClick={this.deactivateMenu}><Link to='/competencias'>Competências</Link></button></li>
+            <li><button onClick={this.deactivateMenu}><Link to='/sobre'>Sobre</Link></button></li>
           </ul>
 
           {this.state.deviceType === 'desktop' && (
-            <SearchBar />
+            <SearchBar deactivateMenu={this.deactivateMenu}  />
           )}
 
         </nav>

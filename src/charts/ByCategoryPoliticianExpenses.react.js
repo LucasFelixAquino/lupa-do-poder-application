@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import ReactECharts from '../components/ReactECharts.react';
+import str from '../bin/str';
 
 export default class ByCategoryPoliticianExpenses extends Component {
 
@@ -34,17 +35,32 @@ export default class ByCategoryPoliticianExpenses extends Component {
     const data = this.props.data[this.state.yearActive];
 
     const option = {
+      tooltip: {
+        show: true,
+        formatter: '{b}<br />R$ {c}'
+      },
+      grid: {
+        left: 180,
+      },
       xAxis: {
         type: 'value'
       },
       yAxis: {
         type: 'category',
-        data: data.x,
+        data: data.x.map(d => str.toTitleCase(d)),
+        axisLabel: {
+          width: 160,
+          overflow: 'truncate',
+        }
       },
       series: [
         {
           data: data.y,
-          type: 'bar'
+          type: 'bar',
+          itemStyle: {
+            color: '#37C280',
+            borderRadius: 4,
+          }
         }
       ]
     };
@@ -69,8 +85,8 @@ export default class ByCategoryPoliticianExpenses extends Component {
       <div className="chart-wrapper expenses-by-category-wrapper">
         <span className="chart-title">Despesas por categoria</span>
         <div className="years-wrapper">
-          {Object.keys(this.props.data).map(d => (
-            <button
+          {Object.keys(this.props.data).map((d, i) => (
+            <button key={i}
               className={"year-span " + (d === this.state.yearActive
                 ? 'active'
                 : '')}
